@@ -1,11 +1,17 @@
 # zimnarzecz — książka lodów
 
-Statyczna, responsywna książka przepisów do Ninja CREAMi Swirl NC701EU.
+Prywatna, statyczna książka przepisów do Ninja CREAMi Swirl NC701EU. Każdy przepis ma własną stronę (`/przepis/<slug>`), a `/ksiazka` zbiera wszystkie do druku.
 
-## Lokalny podgląd
+## Edycja
 
-Otwórz `index.html` w przeglądarce albo uruchom serwer statyczny w katalogu projektu.
+Treść przepisów jest w `src/recipes.mjs`, ilustracje SVG generuje `src/art.mjs`. Po zmianie uruchom:
 
-## Publikacja
+```bash
+node build.mjs
+```
 
-Projekt nie wymaga builda. Vercel serwuje pliki statyczne z katalogu głównego.
+Skrypt nadpisuje `index.html`, `ksiazka.html`, `przepis/*.html` i `img/*.svg`. Tych plików nie edytuj ręcznie. Nowy przepis wymaga też motywu ilustracji w `themes` w `src/art.mjs`.
+
+## Podgląd i publikacja
+
+Lokalnie: `npx serve .` (obsługuje adresy bez `.html`). Vercel serwuje pliki statyczne z katalogu głównego, bez builda. Strona ma `noindex`.
