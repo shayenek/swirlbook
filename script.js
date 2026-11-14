@@ -28,3 +28,14 @@ document.querySelectorAll('.card-foot a').forEach((link) => link.addEventListene
   const target = document.querySelector(link.getAttribute('href'));
   if (target) target.open = true;
 }));
+
+const details = [...document.querySelectorAll('.detail')];
+let previouslyOpen = [];
+window.addEventListener('beforeprint', () => {
+  previouslyOpen = details.filter((detail) => detail.open);
+  details.forEach((detail) => { detail.open = true; });
+});
+window.addEventListener('afterprint', () => {
+  details.forEach((detail) => { detail.open = previouslyOpen.includes(detail); });
+});
+document.querySelector('#print-book').addEventListener('click', () => window.print());
