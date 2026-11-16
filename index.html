@@ -6,8 +6,8 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="theme-color" content="#f5f1e8">
   <meta name="description" content="Osobista książka lodów i innych przepisów.">
-  <title>SwirlBook — lody i inne przepisy</title>
-  <link rel="icon" href="/img/kakaowe.svg" type="image/svg+xml">
+  <title>Przepisomania — lody i inne przepisy</title>
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
@@ -16,7 +16,7 @@
 <body class="">
 
   <header class="topbar">
-    <a class="brand" href="/" aria-label="SwirlBook, strona główna"><span class="brand-mark" aria-hidden="true">✳</span><span>zimna<em>rzecz</em></span></a>
+    <a class="brand" href="/" aria-label="Przepisomania, strona główna"><img class="brand-logo" src="/logo.svg" alt="" width="36" height="36"><span>Przepiso<em>mania</em></span></a>
     <nav class="topnav" aria-label="Nawigacja po lodach">
       <a href="#przepisy">Przepisy</a>
       <a href="#ranking">Ranking</a>
@@ -26,7 +26,7 @@
 
   <main>
     <div class="category-tabs" role="tablist" aria-label="Kategorie przepisów">
-      <button id="tab-lody" class="category-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="panel-lody" data-category="lody">Lody <span>9</span></button>
+      <button id="tab-lody" class="category-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="panel-lody" data-category="lody">Lody <span>10</span></button>
       <button id="tab-inne-przepisy" class="category-tab" type="button" role="tab" aria-selected="false" aria-controls="panel-inne-przepisy" data-category="inne-przepisy" tabindex="-1">Inne przepisy <span>1</span></button>
     </div>
     <div id="panel-lody" role="tabpanel" aria-labelledby="tab-lody">
@@ -34,9 +34,9 @@
       <div class="hero-copy">
         <p class="eyebrow"><span class="dot"></span>Domowe testy · Ninja CREAMi Swirl</p>
         <h1>Mała księga<br>dobrych <i>lodów.</i></h1>
-        <p class="hero-lede">9 smaków, konkretne proporcje i notatki prosto z kuchni. Każdy przepis ma swoją stronę.</p>
+        <p class="hero-lede">10 smaków, konkretne proporcje i notatki prosto z kuchni. Każdy przepis ma swoją stronę.</p>
         <dl class="hero-meta">
-          <div><dt>receptur</dt><dd>09</dd></div>
+          <div><dt>receptur</dt><dd>10</dd></div>
           <div><dt>średnia ocen</dt><dd>7,25</dd></div>
           <div><dt>faworyt</dt><dd><a href="/przepis/kakaowe">Kakaowe</a></dd></div>
         </dl>
@@ -53,8 +53,8 @@
         <label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Szukaj smaku lub składnika" aria-label="Szukaj przepisu"></label>
       </div>
       <div class="filters" role="group" aria-label="Filtruj przepisy">
-        <button class="filter is-active" type="button" data-filter="all">Wszystkie <span>9</span></button>
-        <button class="filter" type="button" data-filter="cream">Kremowe <span>6</span></button>
+        <button class="filter is-active" type="button" data-filter="all">Wszystkie <span>10</span></button>
+        <button class="filter" type="button" data-filter="cream">Kremowe <span>7</span></button>
         <button class="filter" type="button" data-filter="fruit">Owocowe <span>3</span></button>
       </div>
       <div class="recipe-grid" id="recipe-grid">
@@ -64,6 +64,8 @@
           <span class="card-top"><span class="card-tag">Pewny faworyt</span><span class="score">10<small>/10</small></span></span>
           <span class="card-title">Kakaowe</span>
           <span class="card-lede">Gęste kakao, szczypta soli i idealna kremowość po drugim obrocie.</span>
+          <span class="card-nutrition">≈ 182 kcal / 100 g</span>
+
           <span class="card-foot"><span>Ice Cream + Re-spin</span><span class="card-go">Otwórz przepis <span aria-hidden="true">→</span></span></span>
         </span>
       </a>
@@ -73,6 +75,8 @@
           <span class="card-top"><span class="card-tag">Krem ciasteczkowy</span><span class="score">8<small>/10</small></span></span>
           <span class="card-title">Lotus Biscoff</span>
           <span class="card-lede">Karmelowo-korzenny smak. Przy następnym teście lekko podgrzać krem.</span>
+          <span class="card-nutrition">≈ 203 kcal / 100 g</span>
+
           <span class="card-foot"><span>Gelato</span><span class="card-go">Otwórz przepis <span aria-hidden="true">→</span></span></span>
         </span>
       </a>
@@ -82,6 +86,8 @@
           <span class="card-top"><span class="card-tag">Owocowe</span><span class="score">8<small>/10</small></span></span>
           <span class="card-title">Truskawkowe</span>
           <span class="card-lede">Intensywnie owocowe, proste i sprawdzone. Proporcje zostają.</span>
+          <span class="card-nutrition">≈ 83 kcal / 100 g</span>
+
           <span class="card-foot"><span>Fruiti</span><span class="card-go">Otwórz przepis <span aria-hidden="true">→</span></span></span>
         </span>
       </a>
@@ -91,6 +97,8 @@
           <span class="card-top"><span class="card-tag">Mix-in</span><span class="score">7,5<small>/10</small></span></span>
           <span class="card-title">Waniliowe z Oreo</span>
           <span class="card-lede">Znana baza waniliowa w wersji z chrupiącymi kawałkami.</span>
+          <span class="card-nutrition">≈ 203 kcal / 100 g</span>
+
           <span class="card-foot"><span>Ice Cream + Mix-in</span><span class="card-go">Otwórz przepis <span aria-hidden="true">→</span></span></span>
         </span>
       </a>
@@ -100,6 +108,8 @@
           <span class="card-top"><span class="card-tag">Owocowe · test 2.0</span><span class="score">7<small>/10</small></span></span>
           <span class="card-title">Mango &amp; marakuja</span>
           <span class="card-lede">Kwaśna, tropikalna. Kolejny test z większą ilością mango.</span>
+          <span class="card-nutrition">≈ 116 kcal / 100 g</span>
+
           <span class="card-foot"><span>Fruiti</span><span class="card-go">Otwórz przepis <span aria-hidden="true">→</span></span></span>
         </span>
       </a>
@@ -109,6 +119,8 @@
           <span class="card-top"><span class="card-tag">Baza</span><span class="score">6,5<small>/10</small></span></span>
           <span class="card-title">Waniliowe</span>
           <span class="card-lede">Łagodna baza, która prosi się o więcej wanilii lub dobrą pastę.</span>
+          <span class="card-nutrition">≈ 185 kcal / 100 g</span>
+
           <span class="card-foot"><span>Ice Cream</span><span class="card-go">Otwórz przepis <span aria-hidden="true">→</span></span></span>
         </span>
       </a>
@@ -118,6 +130,8 @@
           <span class="card-top"><span class="card-tag">Do dopracowania</span><span class="score">6<small>/10</small></span></span>
           <span class="card-title">Nutella</span>
           <span class="card-lede">Czekoladowo-orzechowa, ale zbyt tłusta. Kakaowe wygrywa.</span>
+          <span class="card-nutrition">≈ 267 kcal / 100 g</span>
+
           <span class="card-foot"><span>Ice Cream*</span><span class="card-go">Otwórz przepis <span aria-hidden="true">→</span></span></span>
         </span>
       </a>
@@ -127,6 +141,8 @@
           <span class="card-top"><span class="card-tag">Roślinne</span><span class="score">5<small>/10</small></span></span>
           <span class="card-title">Alpro Stracciatella</span>
           <span class="card-lede">Jogurtowa baza kokosowa z czekoladą. Proporcje niepotwierdzone.</span>
+          <span class="card-nutrition">≈ 116 kcal / 100 g</span>
+
           <span class="card-foot"><span>Frozen Yogurt</span><span class="card-go">Otwórz przepis <span aria-hidden="true">→</span></span></span>
         </span>
       </a>
@@ -136,6 +152,19 @@
           <span class="card-top"><span class="card-tag">Nowy test</span><span class="score pending">Do oceny</span></span>
           <span class="card-title">Malinowo-truskawkowe</span>
           <span class="card-lede">Śmietankowa baza z maliną i truskawką. Czeka na pierwszą ocenę.</span>
+          <span class="card-nutrition">≈ 127 kcal / 100 g</span>
+
+          <span class="card-foot"><span>Ice Cream</span><span class="card-go">Otwórz przepis <span aria-hidden="true">→</span></span></span>
+        </span>
+      </a>
+      <a class="recipe-card is-pending" href="/przepis/kinder" data-type="cream" data-name="kinder chocolate kinder chocolate soft serve 1.2 nowy test kremowe kinder chocolate mleka 3,2% śmietanki 36% soli">
+        <span class="card-art"><img src="/img/kinder.svg" alt="" width="800" height="600" loading="lazy"></span>
+        <span class="card-body">
+          <span class="card-top"><span class="card-tag">Nowy test</span><span class="score pending">Do oceny</span></span>
+          <span class="card-title">Kinder Chocolate</span>
+          <span class="card-lede">Czekoladowa baza z Kinder Chocolate, gotowa na pierwszy test.</span>
+          <span class="card-nutrition">≈ 227 kcal / 100 g</span>
+
           <span class="card-foot"><span>Ice Cream</span><span class="card-go">Otwórz przepis <span aria-hidden="true">→</span></span></span>
         </span>
       </a>
@@ -203,6 +232,12 @@
           <span class="rank-name">Malinowo-truskawkowe</span>
           <span class="score pending">Do oceny</span>
         </a></li>
+        <li><a class="rank-row is-pending" href="/przepis/kinder">
+          <span class="rank-no">—</span>
+          <img class="rank-thumb" src="/img/kinder.svg" alt="" width="800" height="600" loading="lazy">
+          <span class="rank-name">Kinder Chocolate</span>
+          <span class="score pending">Do oceny</span>
+        </a></li>
       </ol>
     </section>
 
@@ -236,13 +271,14 @@
           <span class="card-top"><span class="card-tag">Domowy rosół</span></span>
           <span class="card-title">Rosół z kurczaka i wołowiny</span>
           <span class="card-lede">Surowy kurczak i wołowina, pieczone warzywa i bardzo spokojne gotowanie.</span>
+
           <span class="card-foot"><span>Około 4 godzin</span><span class="card-go">Otwórz przepis <span aria-hidden="true">→</span></span></span>
         </span>
       </a>
       </div>
     </section>
   </main>
-  <footer class="footer"><a class="brand" href="/" aria-label="SwirlBook, strona główna"><span class="brand-mark" aria-hidden="true">✳</span><span>zimna<em>rzecz</em></span></a><p>Osobisty notatnik przepisów</p></footer>
+  <footer class="footer"><a class="brand" href="/" aria-label="Przepisomania, strona główna"><img class="brand-logo" src="/logo.svg" alt="" width="36" height="36"><span>Przepiso<em>mania</em></span></a><p>Osobisty notatnik przepisów</p></footer>
   <script src="/app.js" defer></script>
 </body>
 </html>

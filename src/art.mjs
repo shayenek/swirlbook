@@ -396,6 +396,16 @@ const themes = {
       ${strawberry(636, 510, 1.1, 22)}
       ${raspberry(574, 552, 0.8, -8)}`,
   },
+  kinder: {
+    bg: '#dbb79c', disc: '#eed5bd', scoops: ['#b87d58', '#c58c65', '#ad714e'],
+    bowl: '#fff7ed', bowlInner: '#e8d9c6', stripe: '#e64c32',
+    texture: specks('#6a3f2b', 24, 1.2, 3.2, 0.7),
+    front: () => `
+      ${drizzle('M330,250 C365,234 390,258 420,238 C448,220 465,246 480,231', '#6a3827', 9)}
+      ${chocSquare(398, 190, 0.85, -12)}
+      ${chocSquare(160, 528, 1, 12)}
+      ${chocSquare(638, 524, 0.9, -10)}`,
+  },
 };
 
 function brothArt() {

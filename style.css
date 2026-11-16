@@ -53,7 +53,7 @@ button { font: inherit; }
 }
 .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-size: 22px; font-weight: 700; letter-spacing: -.02em; }
 .brand em { font-style: normal; color: var(--orange); }
-.brand-mark { color: var(--orange); font-size: 26px; line-height: 1; }
+.brand-logo { width: 36px; height: 36px; flex: none; }
 .topnav { display: flex; gap: 8px; }
 .topnav a, .back {
   text-decoration: none; color: var(--ink); font-size: 17px; font-weight: 600;
@@ -141,6 +141,7 @@ button { font: inherit; }
 .card-title { font-family: var(--serif); font-size: 30px; font-weight: 600; line-height: 1.15; color: var(--ink); margin: 12px 0 8px; }
 .card-lede { font-size: 17px; line-height: 1.55; color: var(--muted); margin-bottom: 20px; }
 .card-foot { margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; border-top: 1px solid var(--line); padding-top: 16px; font-size: 15px; font-weight: 600; color: var(--muted); }
+.card-nutrition { display: block; margin: auto 0 14px; font-size: 16px; font-weight: 700; color: var(--orange); }
 .card-go { color: var(--ink); }
 .recipe-card:hover .card-go { color: var(--orange); }
 
@@ -194,6 +195,26 @@ button { font: inherit; }
 .chip { background: var(--ink); color: var(--paper); font-size: 16px; font-weight: 600; padding: 8px 15px; border-radius: 999px; letter-spacing: .02em; }
 .chip-arrow { color: var(--muted); font-size: 18px; }
 .program-note { margin: 10px 0 0; font-size: 16px; color: #8a6c4c; }
+
+.nutrition { margin-top: clamp(36px, 5vw, 64px); padding: clamp(24px, 4vw, 38px); background: var(--card); border-radius: var(--radius); }
+.nutrition-head { display: flex; align-items: end; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.nutrition-head .eyebrow { margin: 0 0 8px; color: var(--orange); }
+.nutrition-head h2 { margin: 0; font-family: var(--serif); font-size: clamp(30px, 3vw, 42px); font-weight: 600; line-height: 1.1; }
+.nutrition-head p:last-child { margin: 0; color: var(--muted); }
+.nutrition-table-wrap { overflow-x: auto; margin-top: 24px; }
+.nutrition-table { width: 100%; border-collapse: collapse; min-width: 440px; font-variant-numeric: tabular-nums; }
+.nutrition-table th, .nutrition-table td { padding: 12px 8px; border-bottom: 1px solid var(--line); text-align: right; }
+.nutrition-table th:first-child { text-align: left; }
+.nutrition-table thead th { color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: .08em; }
+.nutrition-table tbody th { font-weight: 600; }
+.nutrition-table tbody tr:first-child { font-weight: 700; color: var(--orange); }
+.nutrition-note { margin: 16px 0 0; font-size: 15px; line-height: 1.5; color: var(--muted); }
+@media (max-width: 640px) {
+  .nutrition-table { min-width: 0; table-layout: fixed; font-size: 14px; }
+  .nutrition-table th, .nutrition-table td { padding: 10px 4px; }
+  .nutrition-table th:first-child { width: 42%; }
+  .nutrition-table thead th { font-size: 11px; letter-spacing: .04em; }
+}
 
 .recipe-body { display: grid; grid-template-columns: minmax(300px, .85fr) 1.4fr; gap: clamp(24px, 4vw, 48px); margin-top: clamp(36px, 5vw, 64px); align-items: start; }
 .recipe-body h2 { font-family: var(--serif); font-weight: 600; font-size: 34px; margin: 0 0 18px; line-height: 1.1; }

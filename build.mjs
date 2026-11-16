@@ -4,6 +4,7 @@
 import { mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { recipes, rules } from './src/recipes.mjs';
 import { artFor } from './src/art.mjs';
+import { nutritionFor } from './src/nutrition.mjs';
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const num = (n) => String(n).replace('.', ',');
@@ -20,7 +21,7 @@ const scoreHtml = (r) => (r.score === null
   ? '<span class="score pending">Do oceny</span>'
   : `<span class="score">${num(r.score)}<small>/10</small></span>`);
 
-const brand = `<a class="brand" href="/" aria-label="SwirlBook, strona główna"><span class="brand-mark" aria-hidden="true">✳</span><span>zimna<em>rzecz</em></span></a>`;
+const brand = `<a class="brand" href="/" aria-label="Przepisomania, strona główna"><img class="brand-logo" src="/logo.svg" alt="" width="36" height="36"><span>Przepiso<em>mania</em></span></a>`;
 
 function page({ title, description, body, bodyClass = '' }) {
   return `<!doctype html>
@@ -32,7 +33,7 @@ function page({ title, description, body, bodyClass = '' }) {
   <meta name="theme-color" content="#f5f1e8">
   <meta name="description" content="${esc(description)}">
   <title>${esc(title)}</title>
-  <link rel="icon" href="/img/kakaowe.svg" type="image/svg+xml">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
@@ -52,6 +53,7 @@ const footer = `<footer class="footer">${brand}<p>Osobisty notatnik przepisów</
 
 function card(r, i) {
   const isOther = r.category === 'other';
+  const nutrition = nutritionFor(r.slug);
   const keywords = [r.name, r.title, r.tag, typeLabel[r.type] ?? '', ...r.ingredients.map((x) => x[1])].join(' ').toLocaleLowerCase('pl');
   return `<a class="recipe-card${!isOther && r.score === null ? ' is-pending' : ''}" href="/przepis/${r.slug}" data-type="${r.type ?? 'other'}" data-name="${esc(keywords)}">
         <span class="card-art"><img src="/img/${r.slug}.svg" alt="" width="800" height="600" loading="${i < 3 ? 'eager' : 'lazy'}"></span>
@@ -59,6 +61,7 @@ function card(r, i) {
           <span class="card-top"><span class="card-tag">${esc(r.tag)}</span>${isOther ? '' : scoreHtml(r)}</span>
           <span class="card-title">${esc(r.name)}</span>
           <span class="card-lede">${esc(r.lede)}</span>
+${nutrition ? `          <span class="card-nutrition">≈ ${Math.round(nutrition.per100.kcal)} kcal / 100 g</span>\n` : ''}
           <span class="card-foot"><span>${esc(isOther ? r.duration : r.mode)}</span><span class="card-go">Otwórz przepis <span aria-hidden="true">→</span></span></span>
         </span>
       </a>`;
@@ -158,13 +161,37 @@ function indexPage() {
   </main>
   ${footer}`;
   return page({
-    title: 'SwirlBook — lody i inne przepisy',
+    title: 'Przepisomania — lody i inne przepisy',
     description: 'Osobista książka lodów i innych przepisów.',
     body,
   });
 }
 
 // ---------- strona przepisu ----------
+
+function nutritionBlock(r) {
+  const data = nutritionFor(r.slug);
+  if (!data) return '';
+  const columns = [
+    ['Energia', 'kcal', 'kcal'],
+    ['Białko', 'protein', 'g'],
+    ['Tłuszcz', 'fat', 'g'],
+    ['Węglowodany', 'carbs', 'g'],
+    ['w tym cukry', 'sugars', 'g'],
+  ];
+  const value = (number, unit) => `${num(unit === 'kcal' ? Math.round(number) : (Math.round(number * 10) / 10).toFixed(1))} ${unit}`;
+  return `<section class="nutrition" aria-labelledby="nutrition-${r.slug}">
+    <div class="nutrition-head">
+      <div><p class="eyebrow">Wartości szacunkowe</p><h2 id="nutrition-${r.slug}">Kalorie i wartości odżywcze</h2></div>
+      <p>Masa bazy: <strong>≈ ${num(data.mass)} g</strong></p>
+    </div>
+    <div class="nutrition-table-wrap"><table class="nutrition-table">
+      <thead><tr><th scope="col">Składnik</th><th scope="col">Cała baza</th><th scope="col">100 g</th></tr></thead>
+      <tbody>${columns.map(([label, key, unit]) => `<tr><th scope="row">${label}</th><td>${value(data.whole[key], unit)}</td><td>${value(data.per100[key], unit)}</td></tr>`).join('')}</tbody>
+    </table></div>
+    <p class="nutrition-note">Zawartość tłuszczu w bazie: ≈ ${num((Math.round(data.per100.fat * 10) / 10).toFixed(1))}%. ${esc(data.assumptions)} Wartości dotyczą składników przed mrożeniem i ewentualnym odłożeniem nadmiaru ponad MAX FILL. Rzeczywista porcja może się różnić.</p>
+  </section>`;
+}
 
 function recipeBlock(r, i, { headingTag = 'h1', interactive = true } = {}) {
   const isOther = r.category === 'other';
@@ -186,6 +213,8 @@ function recipeBlock(r, i, { headingTag = 'h1', interactive = true } = {}) {
         <div class="programs"><span class="fact-label">Programy</span><div class="chips">${programs}</div>${r.programNote ? `<p class="program-note">${esc(r.programNote)}</p>` : ''}</div>`}
       </div>
     </header>
+
+${nutritionBlock(r)}
 
     <div class="recipe-body">
       <section class="panel ingredients">
@@ -232,7 +261,7 @@ function recipePage(r, i) {
   </main>
   ${footer}`;
   return page({
-    title: `${r.title} — SwirlBook`,
+    title: `${r.title} — Przepisomania`,
     description: r.lede,
     body,
     bodyClass: 'is-recipe',
@@ -253,7 +282,7 @@ function bookPage() {
     ${recipes.map((r, i) => recipeBlock(r, i, { headingTag: 'h2', interactive: false })).join('\n    ')}
   </main>
   ${footer}`;
-  return page({ title: 'Cała książka — SwirlBook', description: 'Wszystkie przepisy na jednej stronie do druku.', body, bodyClass: 'is-book' });
+  return page({ title: 'Cała książka — Przepisomania', description: 'Wszystkie przepisy na jednej stronie do druku.', body, bodyClass: 'is-book' });
 }
 
 // ---------- zapis ----------
