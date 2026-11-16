@@ -1,4 +1,36 @@
-// Filtry i wyszukiwarka na stronie głównej.
+// Główne kategorie przepisów.
+const categoryTabs = [...document.querySelectorAll('.category-tab')];
+if (categoryTabs.length) {
+  const icePanel = document.querySelector('#panel-lody');
+  const otherPanel = document.querySelector('#panel-inne-przepisy');
+  const iceNav = document.querySelector('.topnav');
+  const selectCategory = () => {
+    const other = window.location.hash === '#inne-przepisy';
+    icePanel.hidden = other;
+    otherPanel.hidden = !other;
+    iceNav.hidden = other;
+    categoryTabs.forEach((tab) => {
+      const selected = tab.dataset.category === (other ? 'inne-przepisy' : 'lody');
+      tab.classList.toggle('is-active', selected);
+      tab.setAttribute('aria-selected', String(selected));
+      tab.tabIndex = selected ? 0 : -1;
+    });
+  };
+  categoryTabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => { window.location.hash = tab.dataset.category; selectCategory(); });
+    tab.addEventListener('keydown', (event) => {
+      if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+      event.preventDefault();
+      const next = categoryTabs[(index + (event.key === 'ArrowRight' ? 1 : -1) + categoryTabs.length) % categoryTabs.length];
+      next.focus();
+      next.click();
+    });
+  });
+  window.addEventListener('hashchange', selectCategory);
+  selectCategory();
+}
+
+// Filtry i wyszukiwarka lodów na stronie głównej.
 const grid = document.querySelector('#recipe-grid');
 if (grid) {
   const cards = [...grid.querySelectorAll('.recipe-card')];

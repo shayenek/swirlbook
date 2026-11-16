@@ -30,6 +30,7 @@ img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; }
 h1, h2, h3 { color: var(--ink); }
 button { font: inherit; }
+[hidden] { display: none !important; }
 
 .eyebrow {
   margin: 0 0 14px;
@@ -60,6 +61,18 @@ button { font: inherit; }
 }
 .topnav a:hover, .back:hover { background: var(--soft); }
 .back { border: 1.5px solid var(--ink); }
+
+/* ---------- kategorie ---------- */
+.category-tabs { display: flex; gap: 10px; max-width: 1240px; margin: 0 auto; padding: 24px var(--gutter) 0; }
+.category-tab { border: 1.5px solid var(--line); border-radius: 999px; background: var(--card); color: var(--ink); padding: 11px 22px; font-weight: 700; cursor: pointer; }
+.category-tab span { color: var(--muted); font-size: 15px; margin-left: 5px; }
+.category-tab:hover { border-color: var(--ink); }
+.category-tab.is-active { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.category-tab.is-active span { color: #c4cbbf; }
+.category-tab:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
+.other-section { min-height: 65vh; }
+.other-section .section-head h1 { font-family: var(--serif); font-weight: 500; font-size: clamp(42px, 5vw, 60px); line-height: 1; letter-spacing: -.02em; margin: 0; }
+.other-intro { color: var(--muted); font-size: 20px; margin: 0 0 30px; }
 
 /* ---------- przyciski ---------- */
 .button-ghost, .button-solid {
@@ -247,6 +260,8 @@ button { font: inherit; }
   .topnav a { padding: 8px 10px; font-size: 16px; }
   .topnav a:last-child { display: none; }
   .back { font-size: 15px; padding: 8px 14px; }
+  .category-tabs { gap: 7px; padding-top: 16px; }
+  .category-tab { padding: 9px 15px; font-size: 15px; }
   .hero-lede, .recipe-lede { font-size: 19px; }
   .recipe-grid { grid-template-columns: 1fr; gap: 20px; }
   .search { width: 100%; }

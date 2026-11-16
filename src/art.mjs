@@ -398,7 +398,32 @@ const themes = {
   },
 };
 
+function brothArt() {
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="70 98 660 495" role="img">
+<defs>
+  <linearGradient id="rosol-bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e4c69a"/><stop offset="1" stop-color="#c88e5d"/></linearGradient>
+  <radialGradient id="rosol-broth"><stop stop-color="#f8d979"/><stop offset=".72" stop-color="#e6ad49"/><stop offset="1" stop-color="#b87327"/></radialGradient>
+  <linearGradient id="rosol-bowl" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fffdf5"/><stop offset="1" stop-color="#d9e1d3"/></linearGradient>
+</defs>
+<rect x="-50" y="-50" width="900" height="700" fill="url(#rosol-bg)"/>
+<circle cx="430" cy="270" r="235" fill="#f0d7ae" opacity=".72"/>
+<ellipse cx="400" cy="548" rx="255" ry="28" fill="#6f492e" opacity=".18"/>
+<path d="M170 338 Q188 517 400 538 Q612 517 630 338Z" fill="url(#rosol-bowl)" stroke="#f8f6ed" stroke-width="12"/>
+<ellipse cx="400" cy="340" rx="230" ry="125" fill="#f8f6ed"/>
+<ellipse cx="400" cy="337" rx="209" ry="105" fill="url(#rosol-broth)"/>
+<path d="M240 320 Q400 250 558 321" fill="none" stroke="#ffe8a0" stroke-width="14" opacity=".38"/>
+<ellipse cx="292" cy="327" rx="29" ry="13" transform="rotate(-24 292 327)" fill="#e16e29"/>
+<ellipse cx="481" cy="365" rx="31" ry="14" transform="rotate(22 481 365)" fill="#e16e29"/>
+<ellipse cx="376" cy="290" rx="22" ry="10" transform="rotate(35 376 290)" fill="#df692c"/>
+<path d="M337 360 q28-24 58-1 q-30 25-58 1 M446 300 q25-19 48 4 q-25 19-48-4 M284 392 q22-15 43 2 q-21 16-43-2" fill="#4e7650"/>
+<path d="M317 275 q23 14 44 0 M421 389 q25-12 45 4 M508 310 q18-16 39-5" fill="none" stroke="#fbe4a0" stroke-width="7" stroke-linecap="round" opacity=".8"/>
+<ellipse cx="400" cy="340" rx="230" ry="125" fill="none" stroke="#fffdf5" stroke-width="16"/>
+<path d="M208 405 Q400 461 592 405" fill="none" stroke="#d5aa68" stroke-width="5" opacity=".7"/>
+</svg>`;
+}
+
 export function artFor(slug) {
+  if (slug === 'rosol') return brothArt();
   const t = themes[slug];
   if (!t) throw new Error(`Brak ilustracji dla: ${slug}`);
   const rand = rng(slug);

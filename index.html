@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
   <meta name="theme-color" content="#f5f1e8">
-  <meta name="description" content="Osobista książka przepisów do Ninja CREAMi Swirl NC701EU.">
-  <title>Książka lodów — Ninja CREAMi Swirl</title>
+  <meta name="description" content="Osobista książka lodów i innych przepisów.">
+  <title>SwirlBook — lody i inne przepisy</title>
   <link rel="icon" href="/img/kakaowe.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,8 +16,8 @@
 <body class="">
 
   <header class="topbar">
-    <a class="brand" href="/" aria-label="Książka lodów, strona główna"><span class="brand-mark" aria-hidden="true">✳</span><span>zimna<em>rzecz</em></span></a>
-    <nav class="topnav" aria-label="Nawigacja główna">
+    <a class="brand" href="/" aria-label="SwirlBook, strona główna"><span class="brand-mark" aria-hidden="true">✳</span><span>zimna<em>rzecz</em></span></a>
+    <nav class="topnav" aria-label="Nawigacja po lodach">
       <a href="#przepisy">Przepisy</a>
       <a href="#ranking">Ranking</a>
       <a href="#zasady">Zasady</a>
@@ -25,11 +25,16 @@
   </header>
 
   <main>
+    <div class="category-tabs" role="tablist" aria-label="Kategorie przepisów">
+      <button id="tab-lody" class="category-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="panel-lody" data-category="lody">Lody <span>9</span></button>
+      <button id="tab-inne-przepisy" class="category-tab" type="button" role="tab" aria-selected="false" aria-controls="panel-inne-przepisy" data-category="inne-przepisy" tabindex="-1">Inne przepisy <span>1</span></button>
+    </div>
+    <div id="panel-lody" role="tabpanel" aria-labelledby="tab-lody">
     <section class="hero">
       <div class="hero-copy">
         <p class="eyebrow"><span class="dot"></span>Domowe testy · Ninja CREAMi Swirl</p>
         <h1>Mała księga<br>dobrych <i>lodów.</i></h1>
-        <p class="hero-lede">Dziewięć smaków, konkretne proporcje i notatki prosto z kuchni. Każdy przepis ma swoją stronę.</p>
+        <p class="hero-lede">9 smaków, konkretne proporcje i notatki prosto z kuchni. Każdy przepis ma swoją stronę.</p>
         <dl class="hero-meta">
           <div><dt>receptur</dt><dd>09</dd></div>
           <div><dt>średnia ocen</dt><dd>7,25</dd></div>
@@ -217,8 +222,27 @@
         </ol>
       </div>
     </section>
+    </div>
+
+    <section class="section other-section" id="panel-inne-przepisy" role="tabpanel" aria-labelledby="tab-inne-przepisy" hidden>
+      <div class="section-head">
+        <div><p class="eyebrow">Z domowej kuchni</p><h1>Inne przepisy</h1></div>
+      </div>
+      <p class="other-intro">Sprawdzone przepisy poza lodami, z dokładnymi proporcjami i krokami.</p>
+      <div class="recipe-grid">
+        <a class="recipe-card" href="/przepis/rosol" data-type="other" data-name="rosół z kurczaka i wołowiny rosół z kurczaka, wołowiny i pieczonych warzyw domowy rosół  surowego całego kurczaka wolnorosnącego surowej porcji rosołowej wołowej zimnej wody marchewki korzenia pietruszki selera korzeniowego cebula pora czosnku liście laurowe ziela angielskiego pieprzu suszonego lubczyku soli na początek; potem do smaku">
+        <span class="card-art"><img src="/img/rosol.svg" alt="" width="800" height="600" loading="eager"></span>
+        <span class="card-body">
+          <span class="card-top"><span class="card-tag">Domowy rosół</span></span>
+          <span class="card-title">Rosół z kurczaka i wołowiny</span>
+          <span class="card-lede">Surowy kurczak i wołowina, pieczone warzywa i bardzo spokojne gotowanie.</span>
+          <span class="card-foot"><span>Około 4 godzin</span><span class="card-go">Otwórz przepis <span aria-hidden="true">→</span></span></span>
+        </span>
+      </a>
+      </div>
+    </section>
   </main>
-  <footer class="footer"><a class="brand" href="/" aria-label="Książka lodów, strona główna"><span class="brand-mark" aria-hidden="true">✳</span><span>zimna<em>rzecz</em></span></a><p>Osobisty notatnik smaków · Ninja CREAMi Swirl NC701EU</p></footer>
+  <footer class="footer"><a class="brand" href="/" aria-label="SwirlBook, strona główna"><span class="brand-mark" aria-hidden="true">✳</span><span>zimna<em>rzecz</em></span></a><p>Osobisty notatnik przepisów</p></footer>
   <script src="/app.js" defer></script>
 </body>
 </html>
