@@ -357,6 +357,18 @@ const themes = {
       ${vanillaPod('M128,536 C210,496 290,500 352,524', 9)}
       ${vanillaFlower(640, 516, 1.05, -8)}`,
   },
+  'caffe-latte': {
+    bg: '#c6a78b', disc: '#ead4bb', scoops: ['#bd9070', '#c69b7c', '#cda584'],
+    bowl: '#f5ebdd', bowlInner: '#dfc9b4', stripe: '#633c29',
+    texture: specks('#693f2a', 28, 1, 2, 0.55),
+    front: () => `<ellipse cx="646" cy="520" rx="19" ry="12" fill="#633c29" transform="rotate(-28 646 520)"/><path d="M634 527q12-13 24-14" fill="none" stroke="#c6a78b" stroke-width="2"/>`,
+  },
+  'reeses-style': {
+    bg: '#c99e74', disc: '#e5bb91', scoops: ['#936144', '#9f6949', '#a46f4d'],
+    bowl: '#492a23', bowlInner: '#3b211c', stripe: '#e0ae72',
+    texture: specks('#d1aa75', 24, 1, 3, 0.75),
+    front: () => chocShard(650, 520, 1, 18, '#5a3225'),
+  },
   nutella: {
     bg: '#c09679', disc: '#d9b69b', scoops: ['#7a4a2d', '#865438', '#8c5a3b'],
     bowl: '#f6f1e7', bowlInner: '#ddd0bb', stripe: '#3a2216',

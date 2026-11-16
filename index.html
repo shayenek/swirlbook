@@ -26,7 +26,7 @@
 
   <main>
     <div class="category-tabs" role="tablist" aria-label="Kategorie przepisów">
-      <button id="tab-lody" class="category-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="panel-lody" data-category="lody">Lody <span>10</span></button>
+      <button id="tab-lody" class="category-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="panel-lody" data-category="lody">Lody <span>12</span></button>
       <button id="tab-inne-przepisy" class="category-tab" type="button" role="tab" aria-selected="false" aria-controls="panel-inne-przepisy" data-category="inne-przepisy" tabindex="-1">Inne przepisy <span>1</span></button>
     </div>
     <div id="panel-lody" role="tabpanel" aria-labelledby="tab-lody">
@@ -34,9 +34,9 @@
       <div class="hero-copy">
         <p class="eyebrow"><span class="dot"></span>Domowe testy · Ninja CREAMi Swirl</p>
         <h1>Mała księga<br>dobrych <i>lodów.</i></h1>
-        <p class="hero-lede">10 smaków, konkretne proporcje i notatki prosto z kuchni. Każdy przepis ma swoją stronę.</p>
+        <p class="hero-lede">12 smaków, konkretne proporcje i notatki prosto z kuchni. Każdy przepis ma swoją stronę.</p>
         <dl class="hero-meta">
-          <div><dt>receptur</dt><dd>10</dd></div>
+          <div><dt>receptur</dt><dd>12</dd></div>
           <div><dt>średnia ocen</dt><dd>7,25</dd></div>
           <div><dt>faworyt</dt><dd><a href="/przepis/kakaowe">Kakaowe</a></dd></div>
         </dl>
@@ -53,8 +53,8 @@
         <label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Szukaj smaku lub składnika" aria-label="Szukaj przepisu"></label>
       </div>
       <div class="filters" role="group" aria-label="Filtruj przepisy">
-        <button class="filter is-active" type="button" data-filter="all">Wszystkie <span>10</span></button>
-        <button class="filter" type="button" data-filter="cream">Kremowe <span>7</span></button>
+        <button class="filter is-active" type="button" data-filter="all">Wszystkie <span>12</span></button>
+        <button class="filter" type="button" data-filter="cream">Kremowe <span>9</span></button>
         <button class="filter" type="button" data-filter="fruit">Owocowe <span>3</span></button>
       </div>
       <div class="recipe-grid" id="recipe-grid">
@@ -168,6 +168,26 @@
           <span class="card-foot"><span>Ice Cream</span><span class="card-go">Otwórz przepis <span aria-hidden="true">→</span></span></span>
         </span>
       </a>
+      <a class="recipe-card is-pending" href="/przepis/caffe-latte" data-type="cream" data-name="caffè latte 1.1 caffè latte 1.1 espresso kremowe mleka 3,2% mocnego espresso śmietanki 36% mleka skondensowanego słodzonego soli">
+        <span class="card-art"><img src="/img/caffe-latte.svg" alt="" width="800" height="600" loading="lazy"></span>
+        <span class="card-body">
+          <span class="card-top"><span class="card-tag">Espresso</span><span class="score pending">Do oceny</span></span>
+          <span class="card-title">Caffè Latte 1.1</span>
+          <span class="card-lede">Mleczne lody na mocnym espresso, bez mleka w proszku.</span>
+
+          <span class="card-foot"><span>Soft Serve / Ice Cream</span><span class="card-go">Otwórz przepis <span aria-hidden="true">→</span></span></span>
+        </span>
+      </a>
+      <a class="recipe-card is-pending" href="/przepis/reeses-style" data-type="cream" data-name="reese's style 1.2 reese's style 1.2 masło orzechowe i kakao kremowe mleka 3,2% masła z orzeszków ziemnych z biedronki (100% orzeszków, 16% kawałków) mleka skondensowanego słodzonego kakao śmietanki 36% soli mlecznej czekolady (deluxe) masła kfd crunchy (deluxe)">
+        <span class="card-art"><img src="/img/reeses-style.svg" alt="" width="800" height="600" loading="lazy"></span>
+        <span class="card-body">
+          <span class="card-top"><span class="card-tag">Masło orzechowe i kakao</span><span class="score pending">Do oceny</span></span>
+          <span class="card-title">Reese's Style 1.2</span>
+          <span class="card-lede">Kakaowa baza z masłem z orzeszków ziemnych. Wariant Deluxe dodaje mleczną czekoladę i orzechowe smugi.</span>
+
+          <span class="card-foot"><span>Scoop / Ice Cream</span><span class="card-go">Otwórz przepis <span aria-hidden="true">→</span></span></span>
+        </span>
+      </a>
       </div>
       <p class="empty" id="empty" hidden>Nie ma takiego smaku. Spróbuj innej nazwy.</p>
     </section>
@@ -236,6 +256,18 @@
           <span class="rank-no">—</span>
           <img class="rank-thumb" src="/img/kinder.svg" alt="" width="800" height="600" loading="lazy">
           <span class="rank-name">Kinder Chocolate</span>
+          <span class="score pending">Do oceny</span>
+        </a></li>
+        <li><a class="rank-row is-pending" href="/przepis/caffe-latte">
+          <span class="rank-no">—</span>
+          <img class="rank-thumb" src="/img/caffe-latte.svg" alt="" width="800" height="600" loading="lazy">
+          <span class="rank-name">Caffè Latte 1.1</span>
+          <span class="score pending">Do oceny</span>
+        </a></li>
+        <li><a class="rank-row is-pending" href="/przepis/reeses-style">
+          <span class="rank-no">—</span>
+          <img class="rank-thumb" src="/img/reeses-style.svg" alt="" width="800" height="600" loading="lazy">
+          <span class="rank-name">Reese's Style 1.2</span>
           <span class="score pending">Do oceny</span>
         </a></li>
       </ol>
